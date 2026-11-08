@@ -29,8 +29,6 @@ LazyLibrarian on TOS 7 through the App Center:
 
 - **Non-root.** `user: "1000:1000"`; verified on real hardware (the container reports uid 1000).
 - **Entrypoint wrapper** (not a privilege shim): the image's s6 service manager needs root, so `src/entrypoint.sh` does the first-run setup and starts LazyLibrarian directly as the unprivileged container user.
-- **Fixed image tag, never `:latest`**, Docker Hub only, no `privileged`, no `network_mode: host`, and no Docker socket, no `cap_add`.
-- **Health check** probing the service on container port 5299.
 - **Deterministic build**: GNU tar with uid/gid 0 and zeroed timestamps, gzip without a timestamp, plus the review-standards self-check above.
 - **Non-root by construction.** The s6 service manager of the image needs root, so the wrapper performs the first-run setup itself and starts LazyLibrarian as `1000:1000`; verified on real hardware.
 - **Fixed image tag `8b6ba443-ls392`** (upstream has no release numbers, so the app version is the image build date), Docker Hub only, no `privileged`, no `network_mode: host`, no `cap_add`, no Docker socket.
