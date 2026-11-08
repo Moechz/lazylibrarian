@@ -1,0 +1,195 @@
+# ===========================================================================
+# Multilingual file for the TOS 7 Docker application "lazylibrariandocker".
+# File name MUST be: <appid>.lang.  23-language superset (14 required by TOS).
+# The App Center picks the text matching the user's device language;
+# untranslated nodes fall back to English, which the official guide allows.
+# Fields: name (app title), auth (upstream author), descript (up to 512
+# chars), release_note, important (up to 512 chars).
+# Translations come from tosapp.json "translations"; run
+#   tosdocker lang <app>          to re-render this file
+#   tosdocker translate <app>     to see what still needs translating
+# ===========================================================================
+[en-us]
+name         = "LazyLibrarian"
+auth         = "LazyLibrarian"
+version      = "@@VERSION@@"
+descript     = "LazyLibrarian is an eBook and audiobook manager. It follows the authors you add, searches your indexers and providers for their missing works, sends the releases to your download client (SABnzbd, NZBGet, Transmission, Deluge) and organises the finished books into your library. This package runs the LinuxServer.io Docker image as a non-root container and keeps configuration, database and logs in the application data folder."
+release_note = "1. First release: LazyLibrarian from the LinuxServer.io Docker Hub image (upstream commit 8b6ba443, image built 2026-11-07), running as a non-root container. Configuration, database and logs are kept in the application data folder."
+important    = "Requires DockerEngine (installed if missing); add a registry mirror if Docker Hub is unreachable. Open the app, then add authors plus at least one download client and indexer/provider - LazyLibrarian does not bundle any of them. Configuration, database and logs live in the application data folder; back it up before uninstalling with data removal. TOS Docker applications cannot mount shared folders: books and downloads stay under DockerAppData/lazylibrariandocker unless you edit docker-compose.yml."
+
+[zh-cn]
+name         = "LazyLibrarian"
+auth         = "LazyLibrarian"
+version      = "@@VERSION@@"
+descript     = "LazyLibrarian 是电子书与有声书管理器：你添加作者后，它会定时在索引站与书源里查找缺失的作品，把资源推送给下载客户端（SABnzbd、NZBGet、Transmission、Deluge），再把完成的书籍整理进书库。本应用以非 root 容器运行 LinuxServer.io 的镜像，配置、数据库与日志保存在应用数据目录。"
+release_note = "1. 首次发布：来自 LinuxServer.io Docker Hub 镜像的 LazyLibrarian（上游提交 8b6ba443，镜像构建于 2026-11-07），以非 root 容器运行；配置、数据库与日志保存在应用数据目录。"
+important    = "需要 DockerEngine（缺失时应用中心会提示安装）。镜像安装时从 Docker Hub 拉取，无法直连请先配置镜像加速。打开后需添加作者，并至少配置一个下载客户端与一个索引站/书源——这些都不会随应用安装。配置、数据库与日志在应用数据目录，卸载并删除数据前请先备份。TOS 的 Docker 应用访问不到共享文件夹：书籍与下载都在 DockerAppData/lazylibrariandocker 下，除非你自行编辑 docker-compose.yml。"
+
+[zh-hk]
+name         = "LazyLibrarian"
+auth         = "LazyLibrarian"
+version      = "@@VERSION@@"
+descript     = "LazyLibrarian 是電子書與有聲書管理器：你加入作者後，它會定時在索引站與書源裡尋找缺失的作品，把資源送給下載用戶端（SABnzbd、NZBGet、Transmission、Deluge），再把完成的書籍整理進書庫。本應用以非 root 容器執行 LinuxServer.io 的映像，設定、資料庫與日誌保存在應用資料目錄。"
+release_note = "1. 首次發佈：來自 LinuxServer.io Docker Hub 映像的 LazyLibrarian（上游提交 8b6ba443，映像建置於 2026-11-07），以非 root 容器執行；設定、資料庫與日誌保存在應用資料目錄。"
+important    = "需要 DockerEngine（缺少時應用中心會提示安裝）。映像安裝時從 Docker Hub 下載，無法直連請先設定映像加速。開啟後需加入作者，並至少設定一個下載用戶端與一個索引站/書源——這些都不會隨應用安裝。設定、資料庫與日誌在應用資料目錄，解除安裝並刪除資料前請先備份。TOS 的 Docker 應用存取不到共享資料夾：書籍與下載都在 DockerAppData/lazylibrariandocker 下，除非你自行編輯 docker-compose.yml。"
+
+[fr-fr]
+name         = "LazyLibrarian"
+auth         = "LazyLibrarian"
+version      = "@@VERSION@@"
+descript     = "LazyLibrarian is an eBook and audiobook manager. It follows the authors you add, searches your indexers and providers for their missing works, sends the releases to your download client (SABnzbd, NZBGet, Transmission, Deluge) and organises the finished books into your library. This package runs the LinuxServer.io Docker image as a non-root container and keeps configuration, database and logs in the application data folder."
+release_note = "1. First release: LazyLibrarian from the LinuxServer.io Docker Hub image (upstream commit 8b6ba443, image built 2026-11-07), running as a non-root container. Configuration, database and logs are kept in the application data folder."
+important    = "Requires DockerEngine (installed if missing); add a registry mirror if Docker Hub is unreachable. Open the app, then add authors plus at least one download client and indexer/provider - LazyLibrarian does not bundle any of them. Configuration, database and logs live in the application data folder; back it up before uninstalling with data removal. TOS Docker applications cannot mount shared folders: books and downloads stay under DockerAppData/lazylibrariandocker unless you edit docker-compose.yml."
+
+[de-de]
+name         = "LazyLibrarian"
+auth         = "LazyLibrarian"
+version      = "@@VERSION@@"
+descript     = "LazyLibrarian is an eBook and audiobook manager. It follows the authors you add, searches your indexers and providers for their missing works, sends the releases to your download client (SABnzbd, NZBGet, Transmission, Deluge) and organises the finished books into your library. This package runs the LinuxServer.io Docker image as a non-root container and keeps configuration, database and logs in the application data folder."
+release_note = "1. First release: LazyLibrarian from the LinuxServer.io Docker Hub image (upstream commit 8b6ba443, image built 2026-11-07), running as a non-root container. Configuration, database and logs are kept in the application data folder."
+important    = "Requires DockerEngine (installed if missing); add a registry mirror if Docker Hub is unreachable. Open the app, then add authors plus at least one download client and indexer/provider - LazyLibrarian does not bundle any of them. Configuration, database and logs live in the application data folder; back it up before uninstalling with data removal. TOS Docker applications cannot mount shared folders: books and downloads stay under DockerAppData/lazylibrariandocker unless you edit docker-compose.yml."
+
+[it-it]
+name         = "LazyLibrarian"
+auth         = "LazyLibrarian"
+version      = "@@VERSION@@"
+descript     = "LazyLibrarian is an eBook and audiobook manager. It follows the authors you add, searches your indexers and providers for their missing works, sends the releases to your download client (SABnzbd, NZBGet, Transmission, Deluge) and organises the finished books into your library. This package runs the LinuxServer.io Docker image as a non-root container and keeps configuration, database and logs in the application data folder."
+release_note = "1. First release: LazyLibrarian from the LinuxServer.io Docker Hub image (upstream commit 8b6ba443, image built 2026-11-07), running as a non-root container. Configuration, database and logs are kept in the application data folder."
+important    = "Requires DockerEngine (installed if missing); add a registry mirror if Docker Hub is unreachable. Open the app, then add authors plus at least one download client and indexer/provider - LazyLibrarian does not bundle any of them. Configuration, database and logs live in the application data folder; back it up before uninstalling with data removal. TOS Docker applications cannot mount shared folders: books and downloads stay under DockerAppData/lazylibrariandocker unless you edit docker-compose.yml."
+
+[es-es]
+name         = "LazyLibrarian"
+auth         = "LazyLibrarian"
+version      = "@@VERSION@@"
+descript     = "LazyLibrarian is an eBook and audiobook manager. It follows the authors you add, searches your indexers and providers for their missing works, sends the releases to your download client (SABnzbd, NZBGet, Transmission, Deluge) and organises the finished books into your library. This package runs the LinuxServer.io Docker image as a non-root container and keeps configuration, database and logs in the application data folder."
+release_note = "1. First release: LazyLibrarian from the LinuxServer.io Docker Hub image (upstream commit 8b6ba443, image built 2026-11-07), running as a non-root container. Configuration, database and logs are kept in the application data folder."
+important    = "Requires DockerEngine (installed if missing); add a registry mirror if Docker Hub is unreachable. Open the app, then add authors plus at least one download client and indexer/provider - LazyLibrarian does not bundle any of them. Configuration, database and logs live in the application data folder; back it up before uninstalling with data removal. TOS Docker applications cannot mount shared folders: books and downloads stay under DockerAppData/lazylibrariandocker unless you edit docker-compose.yml."
+
+[hu-hu]
+name         = "LazyLibrarian"
+auth         = "LazyLibrarian"
+version      = "@@VERSION@@"
+descript     = "LazyLibrarian is an eBook and audiobook manager. It follows the authors you add, searches your indexers and providers for their missing works, sends the releases to your download client (SABnzbd, NZBGet, Transmission, Deluge) and organises the finished books into your library. This package runs the LinuxServer.io Docker image as a non-root container and keeps configuration, database and logs in the application data folder."
+release_note = "1. First release: LazyLibrarian from the LinuxServer.io Docker Hub image (upstream commit 8b6ba443, image built 2026-11-07), running as a non-root container. Configuration, database and logs are kept in the application data folder."
+important    = "Requires DockerEngine (installed if missing); add a registry mirror if Docker Hub is unreachable. Open the app, then add authors plus at least one download client and indexer/provider - LazyLibrarian does not bundle any of them. Configuration, database and logs live in the application data folder; back it up before uninstalling with data removal. TOS Docker applications cannot mount shared folders: books and downloads stay under DockerAppData/lazylibrariandocker unless you edit docker-compose.yml."
+
+[ja-jp]
+name         = "LazyLibrarian"
+auth         = "LazyLibrarian"
+version      = "@@VERSION@@"
+descript     = "LazyLibrarian is an eBook and audiobook manager. It follows the authors you add, searches your indexers and providers for their missing works, sends the releases to your download client (SABnzbd, NZBGet, Transmission, Deluge) and organises the finished books into your library. This package runs the LinuxServer.io Docker image as a non-root container and keeps configuration, database and logs in the application data folder."
+release_note = "1. First release: LazyLibrarian from the LinuxServer.io Docker Hub image (upstream commit 8b6ba443, image built 2026-11-07), running as a non-root container. Configuration, database and logs are kept in the application data folder."
+important    = "Requires DockerEngine (installed if missing); add a registry mirror if Docker Hub is unreachable. Open the app, then add authors plus at least one download client and indexer/provider - LazyLibrarian does not bundle any of them. Configuration, database and logs live in the application data folder; back it up before uninstalling with data removal. TOS Docker applications cannot mount shared folders: books and downloads stay under DockerAppData/lazylibrariandocker unless you edit docker-compose.yml."
+
+[ko-kr]
+name         = "LazyLibrarian"
+auth         = "LazyLibrarian"
+version      = "@@VERSION@@"
+descript     = "LazyLibrarian is an eBook and audiobook manager. It follows the authors you add, searches your indexers and providers for their missing works, sends the releases to your download client (SABnzbd, NZBGet, Transmission, Deluge) and organises the finished books into your library. This package runs the LinuxServer.io Docker image as a non-root container and keeps configuration, database and logs in the application data folder."
+release_note = "1. First release: LazyLibrarian from the LinuxServer.io Docker Hub image (upstream commit 8b6ba443, image built 2026-11-07), running as a non-root container. Configuration, database and logs are kept in the application data folder."
+important    = "Requires DockerEngine (installed if missing); add a registry mirror if Docker Hub is unreachable. Open the app, then add authors plus at least one download client and indexer/provider - LazyLibrarian does not bundle any of them. Configuration, database and logs live in the application data folder; back it up before uninstalling with data removal. TOS Docker applications cannot mount shared folders: books and downloads stay under DockerAppData/lazylibrariandocker unless you edit docker-compose.yml."
+
+[pl-pl]
+name         = "LazyLibrarian"
+auth         = "LazyLibrarian"
+version      = "@@VERSION@@"
+descript     = "LazyLibrarian is an eBook and audiobook manager. It follows the authors you add, searches your indexers and providers for their missing works, sends the releases to your download client (SABnzbd, NZBGet, Transmission, Deluge) and organises the finished books into your library. This package runs the LinuxServer.io Docker image as a non-root container and keeps configuration, database and logs in the application data folder."
+release_note = "1. First release: LazyLibrarian from the LinuxServer.io Docker Hub image (upstream commit 8b6ba443, image built 2026-11-07), running as a non-root container. Configuration, database and logs are kept in the application data folder."
+important    = "Requires DockerEngine (installed if missing); add a registry mirror if Docker Hub is unreachable. Open the app, then add authors plus at least one download client and indexer/provider - LazyLibrarian does not bundle any of them. Configuration, database and logs live in the application data folder; back it up before uninstalling with data removal. TOS Docker applications cannot mount shared folders: books and downloads stay under DockerAppData/lazylibrariandocker unless you edit docker-compose.yml."
+
+[ru-ru]
+name         = "LazyLibrarian"
+auth         = "LazyLibrarian"
+version      = "@@VERSION@@"
+descript     = "LazyLibrarian is an eBook and audiobook manager. It follows the authors you add, searches your indexers and providers for their missing works, sends the releases to your download client (SABnzbd, NZBGet, Transmission, Deluge) and organises the finished books into your library. This package runs the LinuxServer.io Docker image as a non-root container and keeps configuration, database and logs in the application data folder."
+release_note = "1. First release: LazyLibrarian from the LinuxServer.io Docker Hub image (upstream commit 8b6ba443, image built 2026-11-07), running as a non-root container. Configuration, database and logs are kept in the application data folder."
+important    = "Requires DockerEngine (installed if missing); add a registry mirror if Docker Hub is unreachable. Open the app, then add authors plus at least one download client and indexer/provider - LazyLibrarian does not bundle any of them. Configuration, database and logs live in the application data folder; back it up before uninstalling with data removal. TOS Docker applications cannot mount shared folders: books and downloads stay under DockerAppData/lazylibrariandocker unless you edit docker-compose.yml."
+
+[tr-tr]
+name         = "LazyLibrarian"
+auth         = "LazyLibrarian"
+version      = "@@VERSION@@"
+descript     = "LazyLibrarian is an eBook and audiobook manager. It follows the authors you add, searches your indexers and providers for their missing works, sends the releases to your download client (SABnzbd, NZBGet, Transmission, Deluge) and organises the finished books into your library. This package runs the LinuxServer.io Docker image as a non-root container and keeps configuration, database and logs in the application data folder."
+release_note = "1. First release: LazyLibrarian from the LinuxServer.io Docker Hub image (upstream commit 8b6ba443, image built 2026-11-07), running as a non-root container. Configuration, database and logs are kept in the application data folder."
+important    = "Requires DockerEngine (installed if missing); add a registry mirror if Docker Hub is unreachable. Open the app, then add authors plus at least one download client and indexer/provider - LazyLibrarian does not bundle any of them. Configuration, database and logs live in the application data folder; back it up before uninstalling with data removal. TOS Docker applications cannot mount shared folders: books and downloads stay under DockerAppData/lazylibrariandocker unless you edit docker-compose.yml."
+
+[pt-pt]
+name         = "LazyLibrarian"
+auth         = "LazyLibrarian"
+version      = "@@VERSION@@"
+descript     = "LazyLibrarian is an eBook and audiobook manager. It follows the authors you add, searches your indexers and providers for their missing works, sends the releases to your download client (SABnzbd, NZBGet, Transmission, Deluge) and organises the finished books into your library. This package runs the LinuxServer.io Docker image as a non-root container and keeps configuration, database and logs in the application data folder."
+release_note = "1. First release: LazyLibrarian from the LinuxServer.io Docker Hub image (upstream commit 8b6ba443, image built 2026-11-07), running as a non-root container. Configuration, database and logs are kept in the application data folder."
+important    = "Requires DockerEngine (installed if missing); add a registry mirror if Docker Hub is unreachable. Open the app, then add authors plus at least one download client and indexer/provider - LazyLibrarian does not bundle any of them. Configuration, database and logs live in the application data folder; back it up before uninstalling with data removal. TOS Docker applications cannot mount shared folders: books and downloads stay under DockerAppData/lazylibrariandocker unless you edit docker-compose.yml."
+
+[ar-sa]
+name         = "LazyLibrarian"
+auth         = "LazyLibrarian"
+version      = "@@VERSION@@"
+descript     = "LazyLibrarian is an eBook and audiobook manager. It follows the authors you add, searches your indexers and providers for their missing works, sends the releases to your download client (SABnzbd, NZBGet, Transmission, Deluge) and organises the finished books into your library. This package runs the LinuxServer.io Docker image as a non-root container and keeps configuration, database and logs in the application data folder."
+release_note = "1. First release: LazyLibrarian from the LinuxServer.io Docker Hub image (upstream commit 8b6ba443, image built 2026-11-07), running as a non-root container. Configuration, database and logs are kept in the application data folder."
+important    = "Requires DockerEngine (installed if missing); add a registry mirror if Docker Hub is unreachable. Open the app, then add authors plus at least one download client and indexer/provider - LazyLibrarian does not bundle any of them. Configuration, database and logs live in the application data folder; back it up before uninstalling with data removal. TOS Docker applications cannot mount shared folders: books and downloads stay under DockerAppData/lazylibrariandocker unless you edit docker-compose.yml."
+
+[cs-cz]
+name         = "LazyLibrarian"
+auth         = "LazyLibrarian"
+version      = "@@VERSION@@"
+descript     = "LazyLibrarian is an eBook and audiobook manager. It follows the authors you add, searches your indexers and providers for their missing works, sends the releases to your download client (SABnzbd, NZBGet, Transmission, Deluge) and organises the finished books into your library. This package runs the LinuxServer.io Docker image as a non-root container and keeps configuration, database and logs in the application data folder."
+release_note = "1. First release: LazyLibrarian from the LinuxServer.io Docker Hub image (upstream commit 8b6ba443, image built 2026-11-07), running as a non-root container. Configuration, database and logs are kept in the application data folder."
+important    = "Requires DockerEngine (installed if missing); add a registry mirror if Docker Hub is unreachable. Open the app, then add authors plus at least one download client and indexer/provider - LazyLibrarian does not bundle any of them. Configuration, database and logs live in the application data folder; back it up before uninstalling with data removal. TOS Docker applications cannot mount shared folders: books and downloads stay under DockerAppData/lazylibrariandocker unless you edit docker-compose.yml."
+
+[he-il]
+name         = "LazyLibrarian"
+auth         = "LazyLibrarian"
+version      = "@@VERSION@@"
+descript     = "LazyLibrarian is an eBook and audiobook manager. It follows the authors you add, searches your indexers and providers for their missing works, sends the releases to your download client (SABnzbd, NZBGet, Transmission, Deluge) and organises the finished books into your library. This package runs the LinuxServer.io Docker image as a non-root container and keeps configuration, database and logs in the application data folder."
+release_note = "1. First release: LazyLibrarian from the LinuxServer.io Docker Hub image (upstream commit 8b6ba443, image built 2026-11-07), running as a non-root container. Configuration, database and logs are kept in the application data folder."
+important    = "Requires DockerEngine (installed if missing); add a registry mirror if Docker Hub is unreachable. Open the app, then add authors plus at least one download client and indexer/provider - LazyLibrarian does not bundle any of them. Configuration, database and logs live in the application data folder; back it up before uninstalling with data removal. TOS Docker applications cannot mount shared folders: books and downloads stay under DockerAppData/lazylibrariandocker unless you edit docker-compose.yml."
+
+[id-id]
+name         = "LazyLibrarian"
+auth         = "LazyLibrarian"
+version      = "@@VERSION@@"
+descript     = "LazyLibrarian is an eBook and audiobook manager. It follows the authors you add, searches your indexers and providers for their missing works, sends the releases to your download client (SABnzbd, NZBGet, Transmission, Deluge) and organises the finished books into your library. This package runs the LinuxServer.io Docker image as a non-root container and keeps configuration, database and logs in the application data folder."
+release_note = "1. First release: LazyLibrarian from the LinuxServer.io Docker Hub image (upstream commit 8b6ba443, image built 2026-11-07), running as a non-root container. Configuration, database and logs are kept in the application data folder."
+important    = "Requires DockerEngine (installed if missing); add a registry mirror if Docker Hub is unreachable. Open the app, then add authors plus at least one download client and indexer/provider - LazyLibrarian does not bundle any of them. Configuration, database and logs live in the application data folder; back it up before uninstalling with data removal. TOS Docker applications cannot mount shared folders: books and downloads stay under DockerAppData/lazylibrariandocker unless you edit docker-compose.yml."
+
+[nb-no]
+name         = "LazyLibrarian"
+auth         = "LazyLibrarian"
+version      = "@@VERSION@@"
+descript     = "LazyLibrarian is an eBook and audiobook manager. It follows the authors you add, searches your indexers and providers for their missing works, sends the releases to your download client (SABnzbd, NZBGet, Transmission, Deluge) and organises the finished books into your library. This package runs the LinuxServer.io Docker image as a non-root container and keeps configuration, database and logs in the application data folder."
+release_note = "1. First release: LazyLibrarian from the LinuxServer.io Docker Hub image (upstream commit 8b6ba443, image built 2026-11-07), running as a non-root container. Configuration, database and logs are kept in the application data folder."
+important    = "Requires DockerEngine (installed if missing); add a registry mirror if Docker Hub is unreachable. Open the app, then add authors plus at least one download client and indexer/provider - LazyLibrarian does not bundle any of them. Configuration, database and logs live in the application data folder; back it up before uninstalling with data removal. TOS Docker applications cannot mount shared folders: books and downloads stay under DockerAppData/lazylibrariandocker unless you edit docker-compose.yml."
+
+[nl-nl]
+name         = "LazyLibrarian"
+auth         = "LazyLibrarian"
+version      = "@@VERSION@@"
+descript     = "LazyLibrarian is an eBook and audiobook manager. It follows the authors you add, searches your indexers and providers for their missing works, sends the releases to your download client (SABnzbd, NZBGet, Transmission, Deluge) and organises the finished books into your library. This package runs the LinuxServer.io Docker image as a non-root container and keeps configuration, database and logs in the application data folder."
+release_note = "1. First release: LazyLibrarian from the LinuxServer.io Docker Hub image (upstream commit 8b6ba443, image built 2026-11-07), running as a non-root container. Configuration, database and logs are kept in the application data folder."
+important    = "Requires DockerEngine (installed if missing); add a registry mirror if Docker Hub is unreachable. Open the app, then add authors plus at least one download client and indexer/provider - LazyLibrarian does not bundle any of them. Configuration, database and logs live in the application data folder; back it up before uninstalling with data removal. TOS Docker applications cannot mount shared folders: books and downloads stay under DockerAppData/lazylibrariandocker unless you edit docker-compose.yml."
+
+[sv-se]
+name         = "LazyLibrarian"
+auth         = "LazyLibrarian"
+version      = "@@VERSION@@"
+descript     = "LazyLibrarian is an eBook and audiobook manager. It follows the authors you add, searches your indexers and providers for their missing works, sends the releases to your download client (SABnzbd, NZBGet, Transmission, Deluge) and organises the finished books into your library. This package runs the LinuxServer.io Docker image as a non-root container and keeps configuration, database and logs in the application data folder."
+release_note = "1. First release: LazyLibrarian from the LinuxServer.io Docker Hub image (upstream commit 8b6ba443, image built 2026-11-07), running as a non-root container. Configuration, database and logs are kept in the application data folder."
+important    = "Requires DockerEngine (installed if missing); add a registry mirror if Docker Hub is unreachable. Open the app, then add authors plus at least one download client and indexer/provider - LazyLibrarian does not bundle any of them. Configuration, database and logs live in the application data folder; back it up before uninstalling with data removal. TOS Docker applications cannot mount shared folders: books and downloads stay under DockerAppData/lazylibrariandocker unless you edit docker-compose.yml."
+
+[th-th]
+name         = "LazyLibrarian"
+auth         = "LazyLibrarian"
+version      = "@@VERSION@@"
+descript     = "LazyLibrarian is an eBook and audiobook manager. It follows the authors you add, searches your indexers and providers for their missing works, sends the releases to your download client (SABnzbd, NZBGet, Transmission, Deluge) and organises the finished books into your library. This package runs the LinuxServer.io Docker image as a non-root container and keeps configuration, database and logs in the application data folder."
+release_note = "1. First release: LazyLibrarian from the LinuxServer.io Docker Hub image (upstream commit 8b6ba443, image built 2026-11-07), running as a non-root container. Configuration, database and logs are kept in the application data folder."
+important    = "Requires DockerEngine (installed if missing); add a registry mirror if Docker Hub is unreachable. Open the app, then add authors plus at least one download client and indexer/provider - LazyLibrarian does not bundle any of them. Configuration, database and logs live in the application data folder; back it up before uninstalling with data removal. TOS Docker applications cannot mount shared folders: books and downloads stay under DockerAppData/lazylibrariandocker unless you edit docker-compose.yml."
+
+[vi-vn]
+name         = "LazyLibrarian"
+auth         = "LazyLibrarian"
+version      = "@@VERSION@@"
+descript     = "LazyLibrarian is an eBook and audiobook manager. It follows the authors you add, searches your indexers and providers for their missing works, sends the releases to your download client (SABnzbd, NZBGet, Transmission, Deluge) and organises the finished books into your library. This package runs the LinuxServer.io Docker image as a non-root container and keeps configuration, database and logs in the application data folder."
+release_note = "1. First release: LazyLibrarian from the LinuxServer.io Docker Hub image (upstream commit 8b6ba443, image built 2026-11-07), running as a non-root container. Configuration, database and logs are kept in the application data folder."
+important    = "Requires DockerEngine (installed if missing); add a registry mirror if Docker Hub is unreachable. Open the app, then add authors plus at least one download client and indexer/provider - LazyLibrarian does not bundle any of them. Configuration, database and logs live in the application data folder; back it up before uninstalling with data removal. TOS Docker applications cannot mount shared folders: books and downloads stay under DockerAppData/lazylibrariandocker unless you edit docker-compose.yml."
+

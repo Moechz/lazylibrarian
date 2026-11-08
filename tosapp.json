@@ -1,0 +1,133 @@
+{
+  "app_id": "lazylibrariandocker",
+  "title": "LazyLibrarian",
+  "image": "linuxserver/lazylibrarian:8b6ba443-ls392",
+  "repo_name": "lazylibrarian",
+  "mode": "wrapper",
+  "entrypoint_file": "src/entrypoint.sh",
+  "wrapper_note": "the upstream image boots with the s6-overlay v3 init, whose service manager\nneeds root; with user \"1000:1000\" nothing starts and port 5299 stays closed.\nsrc/entrypoint.sh performs the same first-run setup as the image's init\n(folders + default config) and runs the same command the s6 service runs,\ndirectly as the unprivileged container user.\n",
+  "wrapper_note_readme": "- **Entrypoint wrapper** (not a privilege shim): the image's s6 service manager needs root, so `src/entrypoint.sh` does the first-run setup and starts LazyLibrarian directly as the unprivileged container user.",
+  "user_mode_text": "上游镜像以 s6 管理服务且需要 root，入口包装改为直接以 uid 1000 运行 LazyLibrarian",
+  "user_mode_cons": "- 上游镜像用 s6-overlay v3 管理服务，`user: \"1000:1000\"` 时 s6 无法启动应用，5299 无人监听。\n  因此 `src/entrypoint.sh` 复刻镜像 init 的首次初始化（建目录 + 播种 config.ini），\n  再以容器用户执行镜像自带的同一条命令。\n- LazyLibrarian 自身不需要 root：配置、数据库、日志都在 /config 卷内，实测非 root 下首页可访问。\n",
+  "container_port": 5299,
+  "platform": "x86_64",
+  "platforms": [
+    "x86_64",
+    "aarch64"
+  ],
+  "category": [
+    "Download"
+  ],
+  "user": "1000:1000",
+  "volumes": [
+    {
+      "host": "/Volume1/DockerAppData/lazylibrariandocker/config",
+      "container": "/config"
+    },
+    {
+      "host": "/Volume1/DockerAppData/lazylibrariandocker/downloads",
+      "container": "/downloads"
+    },
+    {
+      "host": "/Volume1/DockerAppData/lazylibrariandocker/books",
+      "container": "/books"
+    }
+  ],
+  "env": {
+    "TZ": "Asia/Shanghai"
+  },
+  "healthcheck": [
+    "CMD-SHELL",
+    "curl -s -o /dev/null http://127.0.0.1:5299/ || exit 1"
+  ],
+  "healthcheck_interval": "30s",
+  "healthcheck_timeout": "10s",
+  "healthcheck_retries": 5,
+  "healthcheck_start_period": "120s",
+  "healthcheck_note": "探测首页 `/`，能应答即健康；LazyLibrarian 首次启动要初始化数据库并抓取版本信息，给 120s 宽限。",
+  "auth": "LazyLibrarian",
+  "upstream_url": "https://gitlab.com/LazyLibrarian/LazyLibrarian",
+  "upstream_license": "GPL-3.0",
+  "license": "GPL-3.0",
+  "official": "https://github.com/LazyLibrarian/LazyLibrarian",
+  "help": "https://github.com/Moechz/lazylibrarian/issues",
+  "upstream_version": "2026.11.07",
+  "version": "2026.11.07-1",
+  "descript": "LazyLibrarian is an eBook and audiobook manager. It follows the authors you add, searches your indexers and providers for their missing works, sends the releases to your download client (SABnzbd, NZBGet, Transmission, Deluge) and organises the finished books into your library. This package runs the LinuxServer.io Docker image as a non-root container and keeps configuration, database and logs in the application data folder.",
+  "important": "Requires DockerEngine (installed if missing); add a registry mirror if Docker Hub is unreachable. Open the app, then add authors plus at least one download client and indexer/provider - LazyLibrarian does not bundle any of them. Configuration, database and logs live in the application data folder; back it up before uninstalling with data removal. TOS Docker applications cannot mount shared folders: books and downloads stay under DockerAppData/lazylibrariandocker unless you edit docker-compose.yml.",
+  "release_note": "1. First release: LazyLibrarian from the LinuxServer.io Docker Hub image (upstream commit 8b6ba443, image built 2026-11-07), running as a non-root container. Configuration, database and logs are kept in the application data folder.",
+  "data_notes": "`config/` holds `config.ini` (all settings), the SQLite database, `log/` and `cache/`; `/books` is the library folder and `/downloads` the incoming folder, both mounted from the application data directory. Copying the `lazylibrariandocker` folder is a complete backup.",
+  "design_notes": [
+    "**Non-root by construction.** The s6 service manager of the image needs root, so the wrapper performs the first-run setup itself and starts LazyLibrarian as `1000:1000`; verified on real hardware.",
+    "**Fixed image tag `8b6ba443-ls392`** (upstream has no release numbers, so the app version is the image build date), Docker Hub only, no `privileged`, no `network_mode: host`, no `cap_add`, no Docker socket.",
+    "**Health check** on the UI (`GET /` on port 5299) with a 120 s start period for the first start."
+  ],
+  "limitations": [
+    "LazyLibrarian needs a download client (SABnzbd, NZBGet, Transmission, Deluge) and an indexer or book provider before it can fetch anything; none of them are bundled.",
+    "TOS Docker applications cannot mount shared folders: the library stays in `/Volume1/DockerAppData/lazylibrariandocker/books/` and downloads in `.../downloads/`. Edit `/Volume1/@apps/DockerEngine/application/lazylibrariandocker/docker-compose.yml` after installation to mount your own share.",
+    "The UI is served over plain HTTP on the LAN. Do not expose the published port to the internet without a TLS reverse proxy."
+  ],
+  "runtime_files": [
+    {
+      "path": "config/config.ini",
+      "purpose": "all settings - download client, providers, library folders, API key",
+      "created": "first start",
+      "growth": "static, rewritten on every settings change",
+      "lifecycle": "never overwritten after the first run; it is the whole configuration"
+    },
+    {
+      "path": "config/lazylibrarian.db",
+      "purpose": "SQLite database with authors, books, wanted list and history",
+      "created": "first start",
+      "growth": "grows with the size of the library",
+      "lifecycle": "managed by LazyLibrarian; back it up before uninstalling with data removal"
+    },
+    {
+      "path": "config/log",
+      "purpose": "application logs",
+      "created": "first start",
+      "growth": "rotated by LazyLibrarian",
+      "lifecycle": "safe to delete"
+    },
+    {
+      "path": "config/cache",
+      "purpose": "cached version information and covers",
+      "created": "first start",
+      "growth": "small",
+      "lifecycle": "safe to delete"
+    },
+    {
+      "path": "downloads",
+      "purpose": "incoming downloads before they are processed into the library",
+      "created": "first start (empty)",
+      "growth": "grows with every download",
+      "lifecycle": "managed by LazyLibrarian and by you"
+    },
+    {
+      "path": "books",
+      "purpose": "the organised eBook/audiobook library",
+      "created": "first start (empty)",
+      "growth": "grows with the library",
+      "lifecycle": "yours - move it out before uninstalling with data removal"
+    }
+  ],
+  "translations": {
+    "zh-cn": {
+      "descript": "LazyLibrarian 是电子书与有声书管理器：你添加作者后，它会定时在索引站与书源里查找缺失的作品，把资源推送给下载客户端（SABnzbd、NZBGet、Transmission、Deluge），再把完成的书籍整理进书库。本应用以非 root 容器运行 LinuxServer.io 的镜像，配置、数据库与日志保存在应用数据目录。",
+      "important": "需要 DockerEngine（缺失时应用中心会提示安装）。镜像安装时从 Docker Hub 拉取，无法直连请先配置镜像加速。打开后需添加作者，并至少配置一个下载客户端与一个索引站/书源——这些都不会随应用安装。配置、数据库与日志在应用数据目录，卸载并删除数据前请先备份。TOS 的 Docker 应用访问不到共享文件夹：书籍与下载都在 DockerAppData/lazylibrariandocker 下，除非你自行编辑 docker-compose.yml。",
+      "release_note": "1. 首次发布：来自 LinuxServer.io Docker Hub 镜像的 LazyLibrarian（上游提交 8b6ba443，镜像构建于 2026-11-07），以非 root 容器运行；配置、数据库与日志保存在应用数据目录。"
+    },
+    "zh-hk": {
+      "descript": "LazyLibrarian 是電子書與有聲書管理器：你加入作者後，它會定時在索引站與書源裡尋找缺失的作品，把資源送給下載用戶端（SABnzbd、NZBGet、Transmission、Deluge），再把完成的書籍整理進書庫。本應用以非 root 容器執行 LinuxServer.io 的映像，設定、資料庫與日誌保存在應用資料目錄。",
+      "important": "需要 DockerEngine（缺少時應用中心會提示安裝）。映像安裝時從 Docker Hub 下載，無法直連請先設定映像加速。開啟後需加入作者，並至少設定一個下載用戶端與一個索引站/書源——這些都不會隨應用安裝。設定、資料庫與日誌在應用資料目錄，解除安裝並刪除資料前請先備份。TOS 的 Docker 應用存取不到共享資料夾：書籍與下載都在 DockerAppData/lazylibrariandocker 下，除非你自行編輯 docker-compose.yml。",
+      "release_note": "1. 首次發佈：來自 LinuxServer.io Docker Hub 映像的 LazyLibrarian（上游提交 8b6ba443，映像建置於 2026-11-07），以非 root 容器執行；設定、資料庫與日誌保存在應用資料目錄。"
+    }
+  },
+  "publisher": "Moechz",
+  "compose_project": "lazylibrariandocker",
+  "github_repo": "lazylibrarian",
+  "release_tag_prefix": "v",
+  "docker_socket": false,
+  "group_add": [],
+  "host_port": 8008
+}
