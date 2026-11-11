@@ -52,7 +52,7 @@
   "official": "https://github.com/LazyLibrarian/LazyLibrarian",
   "help": "https://github.com/Moechz/lazylibrarian/issues",
   "upstream_version": "2026.11.07",
-  "version": "2026.11.07-1",
+  "version": "2026.11.07-2",
   "descript": "LazyLibrarian is an eBook and audiobook manager. It follows the authors you add, searches your indexers and providers for their missing works, sends the releases to your download client (SABnzbd, NZBGet, Transmission, Deluge) and organises the finished books into your library. This package runs the LinuxServer.io Docker image as a non-root container and keeps configuration, database and logs in the application data folder.",
   "important": "Requires DockerEngine (installed if missing); add a registry mirror if Docker Hub is unreachable. Open the app, then add authors plus at least one download client and indexer/provider - LazyLibrarian does not bundle any of them. Configuration, database and logs live in the application data folder; back it up before uninstalling with data removal. TOS Docker applications cannot mount shared folders: books and downloads stay under DockerAppData/lazylibrariandocker unless you edit docker-compose.yml.",
   "release_note": "1. First release: LazyLibrarian from the LinuxServer.io Docker Hub image (upstream commit 8b6ba443, image built 2026-11-07), running as a non-root container. Configuration, database and logs are kept in the application data folder.",

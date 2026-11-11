@@ -2,6 +2,11 @@
 
 All notable user-visible changes to the LazyLibrarian TOS application package.
 
+## 2026.11.07-2 — 2026-11-12
+
+### Changed
+- Icon: replaced the letter monogram with a functional vector mark that describes what the app does (the upstream project does not publish a compliant SVG).
+
 ## 2026.11.07-1 — 2026-11-08
 
 ### Added
